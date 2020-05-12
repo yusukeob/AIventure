@@ -1,0 +1,23 @@
+#ClientApp
+**/node_modules/
+**/.expo/
+**/.expo-shared/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/
+**/appconfig.json
+**/package-lock.json
+
+#ServerApp
+**/__pycache__/
+**/venv/
+**/settings.py
+
+# macOS
+.DS_Store
