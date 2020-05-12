@@ -19,5 +19,8 @@ web-report/
 **/venv/
 **/settings.py
 
+#Multiple
+**/.vscode/
+
 # macOS
 .DS_Store
