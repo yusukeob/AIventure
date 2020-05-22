@@ -1,32 +1,65 @@
 import React, { useState } from 'react';
-import { Text, View, Button } from 'react-native';
+import { StyleSheet, TextInput, View, Button } from 'react-native';
 import appconfig from '../appconfig.json'
+import appStyles from './AppStyles';
 
-export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export default function Login({ navigation }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  async function getPlayerinfoAsync() {
+  async function PlayerLogin() {
     try {
       let response = await fetch(
-          appconfig.SERVER_HOST + '/api/login/singleUser'
+          appconfig.SERVER_HOST + '/api/login/', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              username: username,
+              password: password
+            })
+          }
         );
         let json = await response.json();
-        setUsername(json.username);
-        setPassword(json.password);
+        if (json.success) {
+          navigation.navigate('Camera')
+        }
       } catch (error) {
         console.error(error);
     }
   }
 
   return (
-    <View>
-      <Button
-        onPress={getPlayerinfoAsync}
-        title="Push"
+    <View style={appStyles.container}>
+      <TextInput
+        placeholder="Username"
+        onChangeText={username => setUsername(username)}
+        defaultValue={username}
+        style={styles.loginInput}
       />
-      <Text>Username: {username}</Text>
-      <Text>Password: {password}</Text>
+      <TextInput
+        placeholder="Password"
+        onChangeText={password => setPassword(password)}
+        defaultValue={password}
+        style={styles.loginInput}
+      />
+      <Button
+        onPress={PlayerLogin}
+        title="Login"
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  loginInput: {
+    height: 40,
+    width: 200,
+    borderColor: 'black',
+    borderWidth: 2,
+    borderRadius: 4,
+    marginBottom: 2
+  },
+});
