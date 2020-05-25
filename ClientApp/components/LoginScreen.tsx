@@ -3,9 +3,9 @@ import { StyleSheet, TextInput, View, Button } from 'react-native';
 import appconfig from '../appconfig.json'
 import appStyles from './AppStyles';
 
-export default function Login({ navigation }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export default function LoginScreen({ navigation }: any) {
+  const [username, setUsername] = useState('raijin002');
+  const [password, setPassword] = useState('password');
 
   async function PlayerLogin() {
     try {

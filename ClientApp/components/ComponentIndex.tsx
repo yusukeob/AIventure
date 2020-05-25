@@ -1,7 +1,9 @@
-import Login from './Login';
-import Camera from './Camera';
+import LoginScreen from './LoginScreen';
+import CameraScreen from './CameraScreen';
+import ConfirmPictureScreen from './ConfirmPictureScreen';
 
 export {
-    Login,
-    Camera
+    LoginScreen,
+    CameraScreen,
+    ConfirmPictureScreen
 }
