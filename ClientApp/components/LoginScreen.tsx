@@ -13,7 +13,7 @@ export default function LoginScreen({ navigation }: any) {
           appconfig.SERVER_HOST + '/api/login/', {
             method: 'POST',
             headers: {
-              Accept: 'application/json',
+              'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
