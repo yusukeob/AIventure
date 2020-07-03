@@ -54,7 +54,7 @@ export default function CameraScreen({ navigation }: any) {
                 alignItems: 'center',
               }}
               onPress={TakePicture}>
-              <Text style={{ fontSize: 30, marginBottom: 10, color: 'white' }}> Take Picture </Text>
+              <Text style={{ fontSize: 30, marginBottom: 10, color: 'white' }}> Take A Pic Of A Sandal </Text>
             </TouchableOpacity>
           </View>
         </Camera>

@@ -5,14 +5,11 @@ import appStyles from './AppStyles';
 
 export default function ResultScreen({ route, navigation }: any) {
 
-  const { success } = route.params;
-
-  const missionFailedText = <Text style={styles.resultText}>Mission Failed</Text>;
-  const missionPassedText = <Text style={styles.resultText}>Mission Passed</Text>;
+  const { prediction } = route.params;
 
   return (
     <View style={appStyles.container}>
-      {success ? missionPassedText : missionFailedText}
+      <Text style={styles.resultText}>Prediction: {prediction}</Text>
     </View>
   );
 }

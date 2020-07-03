@@ -39,7 +39,7 @@ export default function ConfirmPictureScreen({ route, navigation }: any) {
           }
         );
         let json = await response.json();
-        navigation.navigate('Result', {success: json.success})
+        navigation.navigate('Result', json)
       } catch (error) {
         console.error(error);
     }
